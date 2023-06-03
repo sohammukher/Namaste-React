@@ -1,0 +1,25 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohammukher/Namaste-React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "soham mukherjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sohammukher/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/sohammukher/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}
