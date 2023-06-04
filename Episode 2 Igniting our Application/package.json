@@ -2,7 +2,6 @@
   "name": "react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
@@ -20,7 +19,8 @@
   },
   "homepage": "https://github.com/sohammukher/Namaste-React#readme",
   "devDependencies": {
-    "parcel": "^2.9.1"
+    "parcel": "^2.9.1",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
