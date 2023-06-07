@@ -31,12 +31,4 @@ const reactRoot = ReactDOM.createRoot(document.getElementById("root")); // Creat
     </div>
 </div> */
 
-const heading2 = React.createElement("h1",{id:"head1"},"Heading 2")
-
-const parent = React.createElement("div",{id: "parent"}, 
-                React.createElement("div",{id: "child"}, 
-                React.createElement("div",{id: "innerChild"},[heading,heading2])
-                )
-)
-
-reactRoot.render(parent)
+       

@@ -14,7 +14,7 @@ import  ReactDOM  from "react-dom/client";
 console.log("REACT")
 
 // (TAG_TYPE, {ATTRIBUTE}, CONTENT)
-const heading = React.createElement("h1",{id:"heading"},"Hello World From React!!");
+const heading = React.createElement("h1",{id:"heading"},"Hello World From React!! ");
 
 const reactRoot = ReactDOM.createRoot(document.getElementById("root")); // Create Root For React
 
