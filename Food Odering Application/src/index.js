@@ -5,6 +5,12 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import RestaurantCard from "./components/RestaurantCard";
 import Footer from "./components/Footer";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
+
+import { createBrowserRouter,Outlet,RouterProvider } from "react-router-dom";
 // ----------App Overall Layout-------- 
 
 // Header:
@@ -1987,7 +1993,7 @@ const AppLayoutComponent = () =>{
 
     return (<div className="app">
         <Header/>
-        <Body/>
+        <Outlet/> 
     </div>);
 
 }
@@ -1995,7 +2001,47 @@ const AppLayoutComponent = () =>{
 //Creating Root
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
+
+// Creating Routing Configuration inside our App.js File 
+
+const appRouter = createBrowserRouter(
+  [
+  {// "/" --> is the "ROOT" Route
+  path:"/",// Defines what happens at path "/"    
+  // If path is "/" Load the Main AppLayoutComponent
+
+  element:<AppLayoutComponent/>,
+  errorElement: <Error/>,
+  children:[  
+    {
+      path :"/",
+      element :<Body/>,
+
+    },
+    
+    { // We have "/about" and "/contact as childern of our root route ie "/"
+    path:"/about", 
+    element:<About/>}, // Child of "AppLayoutComponent"
+
+    {
+      path:"/contact", 
+      element:<Contact/>},
+
+    {
+      path:"/restaurants/:resID",  // Dynamic Path
+      element:<RestaurantMenu/>},
+    
+    ],// Child of "AppLayoutComponent"
+
+}, 
+
+
+  
+  ]
+)
+
 // Rendering to root
-root.render(<AppLayoutComponent/>) 
+root.render(<RouterProvider router={appRouter}/>) 
+
 
 export default styleCard
