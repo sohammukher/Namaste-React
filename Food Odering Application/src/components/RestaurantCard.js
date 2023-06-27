@@ -6,7 +6,7 @@ const RestaurantCard = (props) =>{ // Using Props here
     // Now resdata has all the contents of props
     const {resdata} = props // Destructing
 
-    const {name,cuisines,avgRating,costForTwo,deliveryTime} = resdata.data
+    const {name,cuisines,avgRating,costForTwo,deliveryTime} = resdata?.data
 
 
     return (

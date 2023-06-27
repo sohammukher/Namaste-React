@@ -100,3 +100,15 @@
 .filter-btn{
     margin-left:30px ;
 }
+
+
+.user-card{
+    padding:10px;
+    border:10px solid black;
+}
+
+
+.displayPic{
+
+    border-radius: 360px;
+}
