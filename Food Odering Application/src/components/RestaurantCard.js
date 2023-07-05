@@ -10,7 +10,7 @@ const RestaurantCard = (props) =>{ // Using Props here
 
 
     return (
-        <div className = "restaurant-card" style ={styleCard}>
+        <div className = "restaurant-card" style ={styleCard}> 
             <img  className = "res-logo" alt="Image Not Loaded" src={RESTAURANT_IMG+resdata.data.cloudinaryImageId}></img>
             <h3>{name}</h3>
             <h4>{cuisines.join(", ")} </h4>

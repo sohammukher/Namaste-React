@@ -3,6 +3,8 @@ import Shimmer from "./Shimmer";
 import {MENUAPI_URL} from "../utils/constant"
 import { useParams } from "react-router-dom";
 
+import useRestaurantMenu from "../utils/useRestaurantMenu"
+
 const RestDetails =(props) =>{
 
     console.log("Inside RestDetails")
@@ -16,37 +18,12 @@ const RestDetails =(props) =>{
 }
 const RestaurantMenu =() =>{
 
-    //State Varible, so that after fetching data we can update the dummy data.
-    const [resInfo,setresInfo] = useState(null)
-
+ 
     // Fetching Details of the dynamic part of the path variable
     const {resID} = useParams()
 
-
-    useEffect(()=>{ // First arguement callback function
-
-        fetchMenu();
-
-    },[]); //Call this function only after first render 
-
-    const fetchMenu = async()=>{
-
-        console.log("resId"+resID)
-
-         const data = await fetch(MENUAPI_URL+resID)
-
-         const json = await data.json();
-
-         //Checking if name fetched properly
-         console.log(json?.data?.cards[0]?.card?.card?.info.name)
-
-         setresInfo(json)
-
-         // filling the state variable with the API data
-         
-
-
-    }
+    // Fetching data from Custom Hooks
+    const resInfo = useRestaurantMenu(resID)
 
     if(resInfo===null)
     { console.log("resInfo is NULL")
