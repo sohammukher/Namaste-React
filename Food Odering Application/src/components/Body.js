@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer"
 // import restList from "../utils/mockdata";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus"
 // Body:
 // -Search
 // -Restaurant Container
@@ -59,6 +60,15 @@ const Body = () => {
   };
 
   console.log("resList", resList.length)
+
+  //Check Internet
+  const internetStatus = useOnlineStatus()
+
+  console.log("internetStatus "+internetStatus)
+  if(internetStatus === false){
+
+    return <h1>You are Offline!!!!</h1>
+  }
 
   //When Nothing Is Rendered Print Loading to the Console................
   //resList is a state variable
