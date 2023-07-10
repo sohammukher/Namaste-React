@@ -26,19 +26,20 @@ const Header = () => {
   const internetStatus = useOnlineStatus()
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className=" bg-amber-400 flex justify-between ">
+      <div className="logo-container ">
+        <img className="w-[100px]  border-2 border-amber-600 rounded-full px-3 py-4 " src={LOGO_URL} />
       </div>
-      <div className="navItems">
-        <ul>
-          <li>Online Status: {useOnlineStatus()?"🟢":"🔴"}</li>
-          <li><Link to ="/">Home</Link></li>
-          <li><Link to ="/about">About Us</Link></li>
-          <li><Link to ="/contact">Contact Us</Link></li>
-          <li>Cart</li>
+      <div className="navItems items-center px-15 font-semibold ">
+        <ul className="flex p-4 m-4">
+          <li className="px-4">Online Status: {useOnlineStatus()?"🟢":"🔴"}</li>
+          <li className="px-4"><Link to ="/">Home</Link></li>
+          <li className="px-4"><Link to ="/about">About Us</Link></li>
+          <li className="px-4"><Link to ="/contact">Contact Us</Link></li>
+          <li className="px-4"><Link to ="/grocery">Grocery</Link></li>
+          <li className="px-4">Cart</li>
           <button
-            className="login"
+            className="bg-blue-400 rounded-lg px-5 hover:bg-slate-500 border-black"
             onClick={() => {
               console.log("Changing the Button Text to Logout ");
 

@@ -6,14 +6,10 @@
 
     const Footer = () =>{
         return (
-            <div className="footer">
-                <div className="copyright">Copyright</div>
-                <div className="links">Links</div>
-                <div className="address">Address</div>
-                <div className="contact">Address</div>
-    
-    
-                
+            <div className="bg-amber-400 flex  justify-items-start ">
+                <div className="copyright px-4">Copyright</div>
+                <div className="links  px-4">Links</div>
+                <div className="address  px-4">Address</div>    
     
             </div>
         )

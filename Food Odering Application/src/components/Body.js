@@ -78,7 +78,7 @@ const Body = () => {
 
       <div className="filter">
 
-        <input type="text" className="search-box"
+        <input type="text" className="border border-solid border-black  rounded-md"
         onChange={(e)=>{ // This a callback method
 
             console.log("Value User Changed in SearchBox is"+e.target.value);
@@ -86,7 +86,7 @@ const Body = () => {
             // Now the TextBox Will be Updated!!!
 
         }}></input>
-        <button className="search-button" 
+        <button className="px-4 bg-yellow-500 m-4  rounded-md hover:border-orange-500" 
         value = {searchText}
         onClick={()=>{
             console.log("Search Button Clicked")
@@ -104,7 +104,7 @@ const Body = () => {
     
     
         <button
-          className="filter-btn"
+          className="bg bg-orange-500 px-5 rounded-md hover:border-2 border-yellow-500"
           onClick={() => {
             // Filtering out restaurants with avgRating More than 4
             listOfRestaurant = restList.filter((res) => res.data.avgRating > 4);
@@ -120,7 +120,7 @@ const Body = () => {
         </button>
       </div>
       {/* <div className="search">Search</div> */}
-      <div className="restaurant-container">
+      <div className="flex flex-wrap">
         
         {filteredResList.map((currentItem) => (
          <Link to = {"/restaurants/"+currentItem.data.id}> 
