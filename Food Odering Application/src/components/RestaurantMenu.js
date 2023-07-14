@@ -26,6 +26,11 @@ const RestaurantMenu =() =>{
     // Fetching data from Custom Hooks
     const resInfo = useRestaurantMenu(resID)
 
+    // For Opening and Closing of the Accordian Menu Items
+    const [showIndex, setShowIndex] = useState(0);
+
+
+
     if(resInfo===null)
     { console.log("resInfo is NULL")
         return <Shimmer/>}
@@ -68,7 +73,9 @@ const RestaurantMenu =() =>{
 {/* 
             </ul> */}
 
-            {categories.map((category)=><RestaurantCategory data= {category?.card.card}/>)}
+            {categories.map((category,index)=><RestaurantCategory key={category?.card.card.title} data= {category?.card.card} showItems = {index === showIndex? true:false}
+                setShowIndex={()=> setShowIndex(index)}
+            />)}
 
 
 

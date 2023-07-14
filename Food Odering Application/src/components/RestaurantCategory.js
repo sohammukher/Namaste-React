@@ -3,10 +3,10 @@ import { useState } from "react";
 
 const RestaurantCategory = (props) =>{
 
-    const{data} = props;
+    const{data,showItems,setShowIndex} = props;
 
     // Use State to control the show and hide of the Items
-    
+    // const [showItems, setShowItems] = useState(false)
 
     console.log("RestaurantCategory Data")
     console.log(data)
@@ -18,6 +18,13 @@ const RestaurantCategory = (props) =>{
         <div className="text-left px-4 py-2 justify-between hover:cursor-pointer" style={{ display: "flex", alignItems: "center" }} onClick={()=>{
             console.log("Clicked")
 
+            // Set Show Items as True on Item Click
+            // Setting it to negative of current state
+            // setShowItems(!showItems);
+
+            setShowIndex()
+
+
         }}  >
         <span className="font-semibold">{data.title} ({data.itemCards.length})</span>
         <span className="px-4">⬇️</span>
@@ -26,7 +33,8 @@ const RestaurantCategory = (props) =>{
 
         {/* Accordian Body */}
 
-        <ItemList items data={data.itemCards}/>
+        {showItems?<ItemList items data={data.itemCards}/>:<></>}
+        
         </div>
 
 
