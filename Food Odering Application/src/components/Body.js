@@ -5,11 +5,14 @@ import Shimmer from "./Shimmer"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus"
+
+import { withPromotedLabel } from "./RestaurantCard";
 // Body:
 // -Search
 // -Restaurant Container
 // 	->Restaurant Card(Multiple in Number) --> New Reusable component
 let listOfRestaurant = [];
+
 const Body = () => {
   const [resList, setresList] = useState([]); // This we will never Modify just for reading
   const [filteredResList, sefilteredResList] = useState(resList); // This we will modify this is for the actual display purpose
@@ -19,6 +22,11 @@ const Body = () => {
 
   // Search Box Text
   const[searchText,setsearchText] = useState('')
+
+  // Higher Order Function Call
+  // To Enhance Component Restaurant Card
+  // Adding Promoted Label to the Card.
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -46,6 +54,7 @@ const Body = () => {
         throw new Error(`Request failed with status ${data.status}`);
       }
       const jsonResponse = await data.json();
+      
       console.log("jsonResponse", jsonResponse);
 
       // Update List Of Restaurant with new data we fetched from API.
@@ -107,11 +116,12 @@ const Body = () => {
           className="bg bg-orange-500 px-5 rounded-md hover:border-2 border-yellow-500"
           onClick={() => {
             // Filtering out restaurants with avgRating More than 4
-            listOfRestaurant = restList.filter((res) => res.data.avgRating > 4);
+            listOfRestaurant = resList.filter((res) => res.data.avgRating > 4);
 
             // Works like a setter function, setting the value of resList to the value of the array
             console.log("setting resList")
             setresList(listOfRestaurant);
+            sefilteredResList(listOfRestaurant)
 
             console.log(listOfRestaurant);
           }}
@@ -124,7 +134,10 @@ const Body = () => {
         
         {filteredResList.map((currentItem) => (
          <Link to = {"/restaurants/"+currentItem.data.id}> 
-         <RestaurantCard key={currentItem.data.id} resdata={currentItem} />
+         
+         {/* If the Restaurant Is Promoted Add a Key to it. */}
+         {currentItem.data.promoted?(<RestaurantCardPromoted key={currentItem.data.id} resdata={currentItem} />):(<RestaurantCard key={currentItem.data.id} resdata={currentItem} />)}
+         
           </Link>
         ))}
        

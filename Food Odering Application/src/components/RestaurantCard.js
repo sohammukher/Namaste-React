@@ -3,14 +3,22 @@ import { RESTAURANT_IMG } from "../utils/constant"
 
 const RestaurantCard = (props) =>{ // Using Props here
 
+
+    console.log("Inside RestaurantCard, Printing "+props)
+
+    
+
     // Now resdata has all the contents of props
     const {resdata} = props // Destructing
+
+    // Printing to see the Data:
+    console.log(resdata)
 
     const {name,cuisines,avgRating,costForTwo,deliveryTime} = resdata?.data
 
 
     return (
-        <div className = " shadow-xl m-4 p-4 w-[220px] h-[370px] rounded-xl items-center border-2 border-orange-500 hover:border-4" > 
+        <div className = " shadow-xl m-4 p-4 w-[240px] h-[370px] rounded-xl items-center border-2 border-orange-500 hover:border-4" > 
             <img  className = "rounded-md px-4 shadow-sm bg-white border-slate-950"  alt="Image Not Loaded" src={RESTAURANT_IMG+resdata.data.cloudinaryImageId}></img>
             <h3 className="py-3 font-semibold font-serif">{name}</h3>
             <h4>{cuisines.join(", ")} </h4>
@@ -22,4 +30,27 @@ const RestaurantCard = (props) =>{ // Using Props here
     )
 }
 
+// Higher Order Function:
+
+// Taking RestaurantCard as an Input
+export const withPromotedLabel =(RestaurantCard)=>{
+
+    // We are returning Another Component,
+    // Components are Functions so we are returning Function Here.
+
+    // We will need to Pass the Data to the Restuarant Card.
+
+    
+    return (props) =>{
+    return(<div>
+        <label className="absolute left-4  bg-slate-700 m-2 p-2 rounded-lg   text-slate-100">Promoted</label>
+
+        <RestaurantCard {...props} />
+    </div>) 
+    }
+} // Finally Do not Forget to Export This.
+
 export default RestaurantCard;
+
+
+

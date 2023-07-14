@@ -2,6 +2,7 @@ import { useEffect, useState } from "react" // Named Import
 import Shimmer from "./Shimmer";
 import {MENUAPI_URL} from "../utils/constant"
 import { useParams } from "react-router-dom";
+import RestaurantCategory from "./RestaurantCategory"
 
 import useRestaurantMenu from "../utils/useRestaurantMenu"
 
@@ -30,30 +31,44 @@ const RestaurantMenu =() =>{
         return <Shimmer/>}
 
     // Destructure
+
+
+
     const{name,costForTwoMessage,cloudinaryImageId,cuisines} = resInfo?.data?.cards[0]?.card?.card?.info
 
     const{itemCards} = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
+    // console.log("Printing Card")
+    // console.log(resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR);
+
     // console.log(itemCards)
+
+    // Filtering By Item Category
+    const categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter( (currentItem) => currentItem?.["card"]?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    
+    console.log("Filtered Category Cards")
+    console.log(categories)
+
 
    
 
     // if we do not have data in the state variable,
     // show Shimmer, else show actual data
     return (
-        <div className = "menu">
-            <h1>{name}</h1>
-            <h3>{cuisines.join(", ")} - {costForTwoMessage}</h3>
-            <h3></h3>
-            <h2>Menu</h2>
-            <ul>
+        <div className = " text-center">
+            <h1 className=" font-bold my-10 text-2xl">{name}</h1>
+            <h3 className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</h3>
+            <h2 className="py-6 font-bold">Menu</h2>
+            {/* <ul>
 
                 {itemCards.map((currentItem)=>(
                     <RestDetails key ={currentItem.card.info.id}  details = {currentItem.card.info}/>
                 ))}
-                
+                 */}
+{/* 
+            </ul> */}
 
-            </ul>
+            {categories.map((category)=><RestaurantCategory data= {category?.card.card}/>)}
 
 
 
