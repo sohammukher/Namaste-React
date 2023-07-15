@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import Header from "./components/Header";
@@ -9,10 +9,12 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import  {lazy}  from "react";
+import  {lazy,useEffect,useState}  from "react";
 // import Grocery from "./components/Grocery";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
+import UserContext from "./utils/UserContext";
 // ----------App Overall Layout--------
 
 // Header:
@@ -1588,6 +1590,7 @@ const restList = [
   },
 ];
 
+
 // --------------------------
 
 // CSS Style for React Component: to be passed as JS Object.
@@ -1641,14 +1644,53 @@ const Footer = () => {
 // ------------------------
 
 const Grocery = lazy(()=>import("./components/Grocery"))
+
+
 // AppLayoutComponent: Main Application Component which contains everything inside.
 const AppLayoutComponent = () => {
+
+  // State Variable to Store User Data after Authentication.
+const [userName, setUserName] = useState("UserName");
+
+// Authentication Code Skeleton
+useEffect(()=>{
+
+  // Make API call and send username and password
+
+  // Got Response From API with UserName
+  const data = {
+    name: "Soham",
+  };
+
+  // We want to Pass this Info inside the App.
+  setUserName(data);
+
+},[]) // Blank Brackers as we only want to call it once
+
+
   return (
-    <div className="app">
+
+
+<div className="app">
+
+
+<UserContext.Provider value={ {loggedInUser   : userName.name}}> 
+
+
       <Header />
+
       <Outlet />
+
+  
+</UserContext.Provider>
+ 
+
     </div>
+
+
+
   );
+
 };
 
 //Creating Root

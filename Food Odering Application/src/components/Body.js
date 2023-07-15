@@ -128,6 +128,9 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+
+        <label className="px-4">UserName: </label>
+        <input className="border-2 border-black"></input>
       </div>
       {/* <div className="search">Search</div> */}
       <div className="flex flex-wrap">

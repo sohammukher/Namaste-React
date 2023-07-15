@@ -1,4 +1,4 @@
-//Header : Contains the navbar
+///Header : Contains the navbar
 // Header:
 // -Logo
 // -Nav Items
@@ -9,6 +9,14 @@ import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 
 import useOnlineStatus from "../utils/useOnlineStatus"
+
+// For Using the React Context
+
+// Import the Context File
+import UserContext from "../utils/UserContext";
+
+// Import useContext from "react"
+import { useContext } from "react";
 
 
 const Header = () => {
@@ -25,6 +33,16 @@ const Header = () => {
   // Checking Internet Status :
   const internetStatus = useOnlineStatus()
 
+
+  // Accessing Data From Context:
+  // inside useContext() --> pass the name of the context file
+  // as there may be more thatn one context file in the Application
+  const contextData = useContext(UserContext);
+
+  // To Access do variable.name_of_the_attribute
+  console.log("Context Data")
+  console.log(contextData.loggedInUser)
+
   return (
     <div className=" bg-amber-400 flex justify-between ">
       <div className="logo-container ">
@@ -38,6 +56,7 @@ const Header = () => {
           <li className="px-4"><Link to ="/contact">Contact Us</Link></li>
           <li className="px-4"><Link to ="/grocery">Grocery</Link></li>
           <li className="px-4">Cart</li>
+
           <button
             className="bg-blue-400 rounded-lg px-5 hover:bg-slate-500 border-black"
             onClick={() => {
@@ -54,6 +73,8 @@ const Header = () => {
           >
             {loginBtn}
           </button>
+
+        <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{contextData.loggedInUser}</li>
         </ul>
       </div>
     </div>
