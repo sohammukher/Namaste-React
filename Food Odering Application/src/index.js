@@ -1659,11 +1659,11 @@ useEffect(()=>{
 
   // Got Response From API with UserName
   const data = {
-    name: "Soham",
+    name: "GUnja",
   };
 
   // We want to Pass this Info inside the App.
-  setUserName(data);
+  setUserName(data.name);
 
 },[]) // Blank Brackers as we only want to call it once
 
@@ -1674,7 +1674,7 @@ useEffect(()=>{
 <div className="app">
 
 
-<UserContext.Provider value={ {loggedInUser   : userName.name}}> 
+<UserContext.Provider value={ {loggedInUser   : userName, setUserName}}> 
 
 
       <Header />

@@ -2,9 +2,12 @@ import RestaurantCard from "./RestaurantCard";
 import Footer from "./Footer";
 import Shimmer from "./Shimmer"
 // import restList from "../utils/mockdata";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus"
+
+import UserContext from "../utils/UserContext.js";
+import { useContext } from "react";
 
 import { withPromotedLabel } from "./RestaurantCard";
 // Body:
@@ -22,6 +25,16 @@ const Body = () => {
 
   // Search Box Text
   const[searchText,setsearchText] = useState('')
+
+
+  // Context to set the UserName:
+  const {setUserName,loggedInUser} = useContext(UserContext);
+
+  console.log("useContext(UserContext)")
+  console.log(useContext(UserContext))
+
+
+
 
   // Higher Order Function Call
   // To Enhance Component Restaurant Card
@@ -130,7 +143,7 @@ const Body = () => {
         </button>
 
         <label className="px-4">UserName: </label>
-        <input className="border-2 border-black"></input>
+        <input className="border-2 border-black" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
       </div>
       {/* <div className="search">Search</div> */}
       <div className="flex flex-wrap">
