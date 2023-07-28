@@ -123,7 +123,7 @@ const Body = () => {
             // Filter the restaurant cards and update the UI
             // We need the search text
 
-            let filteredList = resList.filter((res)=>res.data.name.toLowerCase().includes(searchText.toLowerCase()))
+            let filteredList = resList.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
 
             // Setting new value of the state variable
             sefilteredResList(filteredList)
