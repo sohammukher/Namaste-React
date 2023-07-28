@@ -66,13 +66,21 @@ const Body = () => {
       if (!data.ok) {
         throw new Error(`Request failed with status ${data.status}`);
       }
-      const jsonResponse = await data.json();
+      const json = await data.json();
       
-      console.log("jsonResponse", jsonResponse);
+      console.log("jsonResponse", json);
 
       // Update List Of Restaurant with new data we fetched from API.
-      setresList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
-      sefilteredResList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
+      // setresList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
+      // sefilteredResList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
+
+      // API Correction
+      setresList(
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+      sefilteredResList(
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
 
       // After That React will Re-render this component.
       console.log("Rerendered")
@@ -129,7 +137,7 @@ const Body = () => {
           className="bg bg-orange-500 px-5 rounded-md hover:border-2 border-yellow-500"
           onClick={() => {
             // Filtering out restaurants with avgRating More than 4
-            listOfRestaurant = resList.filter((res) => res.data.avgRating > 4);
+            listOfRestaurant = resList.filter((res) => res.info.avgRating > 4);
 
             // Works like a setter function, setting the value of resList to the value of the array
             console.log("setting resList")
@@ -149,10 +157,10 @@ const Body = () => {
       <div className="flex flex-wrap">
         
         {filteredResList.map((currentItem) => (
-         <Link to = {"/restaurants/"+currentItem.data.id}> 
+         <Link to = {"/restaurants/"+currentItem.info.id}> 
          
          {/* If the Restaurant Is Promoted Add a Key to it. */}
-         {currentItem.data.promoted?(<RestaurantCardPromoted key={currentItem.data.id} resdata={currentItem} />):(<RestaurantCard key={currentItem.data.id} resdata={currentItem} />)}
+         {currentItem.info.promoted?(<RestaurantCardPromoted key={currentItem.info.id} resdata={currentItem.info} />):(<RestaurantCard key={currentItem.info.id} resdata={currentItem.info} />)}
          
           </Link>
         ))}
