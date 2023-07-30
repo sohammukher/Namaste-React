@@ -7,7 +7,8 @@ const cartSlice = createSlice({
     // This is the Initial State Of our Slice
     // Currently has no data, Initially.
     initialState : {
-        items:[]
+        // Here items is the variable we choose hence we will modify this will below reducers.
+        items:[], // Some Dummy data
     },
 
     // Here we will define Functions to 
@@ -61,7 +62,7 @@ const cartSlice = createSlice({
 // Export the Actions
 
 // We will destructure to select the specific actions we want
-export const{addItem,removeItem,clearCart} = carSlice.actions;
+export const{addItem,removeItem,clearCart} = cartSlice.actions;
 
 // Exporting the Reducer
 export default cartSlice.reducer;

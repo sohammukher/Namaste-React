@@ -10,6 +10,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import  {lazy,useEffect,useState}  from "react";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -1674,10 +1676,13 @@ useEffect(()=>{
 <div className="app">
 
 
+
 <UserContext.Provider value={ {loggedInUser   : userName, setUserName}}> 
 
 
+<Provider store={appStore}>
       <Header />
+</Provider>
 
       <Outlet />
 

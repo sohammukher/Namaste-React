@@ -18,11 +18,23 @@ import UserContext from "../utils/UserContext";
 // Import useContext from "react"
 import { useContext } from "react";
 
+import { useSelector } from "react-redux";
+
+import { Provider } from "react-redux";
+import {appStore} from "../utils/appStore"
+
 
 const Header = () => {
   let loginBtnTxt = "Login";
 
   const [loginBtn, setloginBtn] = useState(loginBtnTxt);
+
+
+  // Selector Hook Inside React
+
+  // Subscribing to the store using selector
+  // Note cart is the name of the slice which we have defined
+ const cartItems = useSelector((store)=> store.cart.items);
 
 
   useEffect(()=>{ 
@@ -44,6 +56,7 @@ const Header = () => {
   console.log(contextData.loggedInUser)
 
   return (
+
     <div className=" bg-amber-400 flex justify-between ">
       <div className="logo-container ">
         <img className="w-[100px]  border-2 border-amber-600 rounded-full px-3 py-4 " src={LOGO_URL} />
@@ -55,7 +68,7 @@ const Header = () => {
           <li className="px-4"><Link to ="/about">About Us</Link></li>
           <li className="px-4"><Link to ="/contact">Contact Us</Link></li>
           <li className="px-4"><Link to ="/grocery">Grocery</Link></li>
-          <li className="px-4">Cart</li>
+          <li className="px-4 font-bold text-xl">Cart {cartItems.length} Items</li>
 
           <button
             className="bg-blue-400 rounded-lg px-5 hover:bg-slate-500 border-black"
