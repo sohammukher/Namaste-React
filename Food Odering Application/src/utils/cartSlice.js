@@ -17,6 +17,7 @@ const cartSlice = createSlice({
 
         // Function 1 : To Add Items
         addItem:(state,action)=>{
+            // We are Mutating/ Modifying our state here.
             state.items.push(action.payload);
         },
 
@@ -24,6 +25,9 @@ const cartSlice = createSlice({
         removeItem:(state, action)=>{
 
             // Write Logic To remove Item Here
+
+            // We are Mutating/ Modifying our state here.
+
             state.items.pop();
         },
 
@@ -31,6 +35,9 @@ const cartSlice = createSlice({
         clearCart:(state,action)=>{
 
             // Making the Cart Empty
+
+            // We are Mutating/ Modifying our state here.
+
             state.items.length = 0;
         }
 
