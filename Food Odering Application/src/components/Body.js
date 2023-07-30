@@ -9,6 +9,9 @@ import useOnlineStatus from "../utils/useOnlineStatus"
 import UserContext from "../utils/UserContext.js";
 import { useContext } from "react";
 
+
+import { Provider } from "react-redux";
+
 import { withPromotedLabel } from "./RestaurantCard";
 // Body:
 // -Search

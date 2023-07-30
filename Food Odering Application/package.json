@@ -1,9 +1,12 @@
 {
+  "homepage": "http://sohammukher.github.io/food-ordering-application",
   "name": "food-odering-application",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "build": "parcel build index.html"
@@ -11,11 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "parcel": "^2.9.1",
     "postcss": "^8.4.25",
     "process": "^0.11.10",
