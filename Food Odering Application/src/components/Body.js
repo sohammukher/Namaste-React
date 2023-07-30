@@ -11,6 +11,7 @@ import { useContext } from "react";
 
 
 import { Provider } from "react-redux";
+import {appStore} from "../utils/appStore"
 
 import { withPromotedLabel } from "./RestaurantCard";
 // Body:
@@ -107,6 +108,7 @@ const Body = () => {
   //resList is a state variable
   // State Varibales - Super Powerful Variable
   return resList.length === 0? <Shimmer/>: (
+    <Provider props={appStore}>
     <div className="body">
 
       <div className="filter">
@@ -171,6 +173,7 @@ const Body = () => {
       </div>
       <Footer />
     </div>
+    </Provider>
   );
 };
 
