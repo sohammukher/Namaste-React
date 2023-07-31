@@ -1,12 +1,19 @@
 // import {RESTAURANT_IMG}  from "../utils/constant"
 
+import { useDispatch } from "react-redux"
+import { addItem } from "../utils/cartSlice";
+
 const RESTAURANT_IMG = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_160,h_150/"
+
 
 const ItemList = (props) =>{
 
     const {data} = props;
 
     console.log(data)
+
+    const dispatch = useDispatch();
+
 
 
     return (<div>        
@@ -33,7 +40,18 @@ const ItemList = (props) =>{
 
 
         <div className="">
-        <button className="absolute px-3 mx-3  rounded-lg   my-1 bg-orange-600 text-black  font-semibold align-bottom ">Add ➕</button>
+        <button className="absolute px-3 mx-3  rounded-lg   my-1 bg-orange-600 text-black  font-semibold align-bottom "
+        onClick={()=>{
+
+            // Dispatch an action
+            dispatch(addItem("pizza"));
+
+            // dispatch will send it like:
+            // {
+            //     payload:"Pizza"
+            // }
+            
+        }}>Add ➕</button>
         </div>
 
 

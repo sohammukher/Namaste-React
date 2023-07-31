@@ -1682,10 +1682,10 @@ useEffect(()=>{
 
 <Provider store={appStore}>
       <Header />
-</Provider>
+
 
       <Outlet />
-
+</Provider>
   
 </UserContext.Provider>
  

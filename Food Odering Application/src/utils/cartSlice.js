@@ -17,6 +17,11 @@ const cartSlice = createSlice({
         // Define Reducer Functions Here
 
         // Function 1 : To Add Items
+
+            // dispatch will send it like:
+            // {
+            //     payload:"Pizza"
+            // }
         addItem:(state,action)=>{
             // We are Mutating/ Modifying our state here.
             state.items.push(action.payload);
