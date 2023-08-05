@@ -44,8 +44,13 @@ const ItemList = (props) =>{
         onClick={()=>{
 
             // Dispatch an action
-            dispatch(addItem("pizza"));
 
+            // currentItem : we are inside a map function, where the current iterator is this.
+            dispatch(addItem(currentItem));
+
+            console.log(currentItem)
+
+            console.log("Added to the Cart")
             // dispatch will send it like:
             // {
             //     payload:"Pizza"
