@@ -17,6 +17,7 @@ import appStore from "./utils/appStore";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import UserContext from "./utils/UserContext";
+import Cart from "./components/Cart";
 // ----------App Overall Layout--------
 
 // Header:
@@ -1735,6 +1736,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resID", // Dynamic Path
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart", // Dynamic Path
+        element: <Cart />,
       },
     ], // Child of "AppLayoutComponent"
   },

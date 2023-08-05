@@ -64,11 +64,20 @@ const Header = () => {
       <div className="navItems items-center px-15 font-semibold ">
         <ul className="flex p-4 m-4">
           <li className="px-4">Online Status: {useOnlineStatus()?"🟢":"🔴"}</li>
+          
           <li className="px-4"><Link to ="/">Home</Link></li>
+
           <li className="px-4"><Link to ="/about">About Us</Link></li>
+
           <li className="px-4"><Link to ="/contact">Contact Us</Link></li>
+
           <li className="px-4"><Link to ="/grocery">Grocery</Link></li>
-          <li className="px-4 font-bold text-xl">Cart {cartItems.length} Items</li>
+
+          <li className="px-4 font-bold text-xl" >
+          <Link to="/cart">
+          Cart - {cartItems.length} Items
+          </Link>
+          </li>
 
           <button
             className="bg-blue-400 rounded-lg px-5 hover:bg-slate-500 border-black"
