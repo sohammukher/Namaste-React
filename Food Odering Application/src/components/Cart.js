@@ -7,6 +7,11 @@ const Cart = () =>{
 
     // Subscribe to Cart Items:
     const cartItems = useSelector((store)=> store.cart.items);
+    
+    //  More Inefficient Way To Subscribe:
+    // const store = useSelector((store)=>store);
+
+    // const cartItems = store.cart.items; 
 
     console.log(cartItems)
 
@@ -27,9 +32,8 @@ const Cart = () =>{
     Clear Cart
     </button>
 
-
-
-    <ItemList data={cartItems}/>
+    {cartItems.length===0?<h1>No Items In Your Cart, Please Add Some !!</h1>:<ItemList data={cartItems}/>}
+    
     </div>
 
     </div>

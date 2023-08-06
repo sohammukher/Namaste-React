@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.displayPic{
+
+    border-radius: 360px;
+}
+
+
+.user-card{
+    padding:10px;
+    border:2px solid black;
+}

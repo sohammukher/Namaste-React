@@ -6,7 +6,6 @@ const appStore = configureStore({
     // Main Reducer for the whole application
     // We will have as many reducers as many slices we have.
     reducer:{
-
         // we will add the cart reducer we have imported here.
         cart:cartReducer,
         // user:userReducer,
