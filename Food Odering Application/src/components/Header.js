@@ -64,7 +64,7 @@ const Header = () => {
       <div className="navItems items-center px-15 font-semibold ">
         <ul className="flex p-4 m-4">
           <li className="px-4">Online Status: {useOnlineStatus()?"🟢":"🔴"}</li>
-          
+
           <li className="px-4"><Link to ="/">Home</Link></li>
 
           <li className="px-4"><Link to ="/about">About Us</Link></li>
@@ -96,7 +96,7 @@ const Header = () => {
             {loginBtn}
           </button>
 
-        <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{contextData.loggedInUser}</li>
+        <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{contextData.loggedInUser.length===0?"Welcome Visitor":"Hi "+contextData.loggedInUser}</li>
         </ul>
       </div>
     </div>

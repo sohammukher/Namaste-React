@@ -19,7 +19,7 @@ const RestaurantCard = (props) =>{ // Using Props here
 
     return (
         <div className = " shadow-xl m-4 p-4 w-[240px] h-[370px] rounded-xl items-center border-2 border-orange-500 hover:border-4" > 
-            <img  className = "rounded-md px-4 shadow-sm bg-white border-slate-950"  alt="Image Not Loaded" src={RESTAURANT_IMG+resdata.cloudinaryImageId}></img>
+            <img  className = "px-1 mx-4 shadow-sm bg-white border-slate-950 rounded-xl"  alt="Image Not Loaded" src={RESTAURANT_IMG+resdata.cloudinaryImageId}></img>
             <h3 className="py-3 font-semibold font-serif">{name}</h3>
             <h4>{ cuisines.slice(0, 4).join(", ")} </h4>
             <h4>{avgRating}</h4>

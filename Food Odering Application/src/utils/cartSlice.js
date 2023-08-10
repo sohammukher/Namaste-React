@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createSlice, current} from "@reduxjs/toolkit"
 
 
 const cartSlice = createSlice({
@@ -44,7 +44,20 @@ const cartSlice = createSlice({
 
             // We are Mutating/ Modifying our state here.
 
+            // To Print the Current State we need to do below, normal console.log will not work:
+            console.log(current(state));
             state.items.length = 0;
+
+            // If we do :
+            // state = [];
+            // it will not work, because the state varibale which we 
+            // are accessing is a local variable it will not modify the actual
+            // parameter which is passed.
+
+            // Here we can also do -> return {[items:[]]} 
+
+            // This will work because in RTK we can return the new state or mutate the current state.
+            // Whatever we return will replace our initial state which we recieved in our parameter.
         }
 
 
@@ -69,5 +82,5 @@ const cartSlice = createSlice({
 // We will destructure to select the specific actions we want
 export const{addItem,removeItem,clearCart} = cartSlice.actions;
 
-// Exporting the Reducer
+// Exporting the Reducer : this is a combination of all reducers we defined above.
 export default cartSlice.reducer;
