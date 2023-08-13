@@ -3,7 +3,9 @@ import Contact from "../Contact";
 
 import "@testing-library/jest-dom";
 
-test('Should Load Contact Us Component ', 
+describe("Test Cases for Contact Us Component",()=>{
+
+    test('Should Load Contact Us Component ', 
 () => { render(<Contact/>)  
 // If Contact Component is rendered all its children will be be rendered.
 
@@ -69,4 +71,5 @@ test("Should load 2 input Boxes on the Contact Component",()=>{
     // We can also do inverse like:
     // expect(inputBoxes.length).not.toBe(3)
 
+})
 })
