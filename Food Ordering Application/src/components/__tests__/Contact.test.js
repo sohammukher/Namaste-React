@@ -40,3 +40,33 @@ test('Should Load Button Inside the Contact Component ',
  // To Use toBeInTheDocument() we need to Install -->  npm i -D @testing-library/jest-dom
  expect(name).toBeInTheDocument();
 })
+
+test("Should load 2 input Boxes on the Contact Component",()=>{
+
+    render(<Contact/>);
+
+    // "textbox" is the Role for "inputBox"
+    // Even if we do wrong there will be suggestions which will be enough.
+
+    // We need to do "getAllByRole" here because if we do "getByRole"
+    // many elements satisfy the query and we will get an error
+    const inputBoxes = screen.getAllByRole("textbox");
+
+
+    // We can Do console.log here
+    console.log(inputBoxes[0]);
+    console.log(inputBoxes[1]);
+
+    // What Output we see above
+    // --> it will be a react Element from the virtual DOM
+    // --> Always Remember  JSX OR React Fiber Node OR JS Object, Virtual DOM Obj all the same thing
+
+
+    // Assertion
+    // We Expect 2 Input Fields in this.
+    expect(inputBoxes.length).toBe(3)
+
+    // We can also do inverse like:
+    // expect(inputBoxes.length).not.toBe(3)
+
+})

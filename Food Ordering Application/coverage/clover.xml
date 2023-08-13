@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1691731072267" clover="3.2.0">
-  <project timestamp="1691731072267" name="All files">
+<coverage generated="1691893543695" clover="3.2.0">
+  <project timestamp="1691893543695" name="All files">
     <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="4" ncloc="4" packages="1" files="2" classes="2"/>
-    <file name="Contact.js" path="C:\Users\soham\Desktop\React\Namaste-React\Food Odering Application\src\components\Contact.js">
+    <file name="Contact.js" path="C:\Users\soham\Desktop\React\Namaste-React\Food Ordering Application\src\components\Contact.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="3" count="1" type="stmt"/>
-      <line num="4" count="3" type="stmt"/>
+      <line num="4" count="4" type="stmt"/>
     </file>
-    <file name="sum.js" path="C:\Users\soham\Desktop\React\Namaste-React\Food Odering Application\src\components\sum.js">
+    <file name="sum.js" path="C:\Users\soham\Desktop\React\Namaste-React\Food Ordering Application\src\components\sum.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
