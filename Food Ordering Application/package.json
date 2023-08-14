@@ -9,7 +9,8 @@
     "deploy": "gh-pages -d build",
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "watch-test": "jest --watch"
   },
   "author": "",
   "license": "ISC",
