@@ -4,7 +4,8 @@ import { RESTAURANT_IMG } from "../utils/constant"
 const RestaurantCard = (props) =>{ // Using Props here
 
 
-    console.log("Inside RestaurantCard, Printing "+props)
+    console.log("Inside RestaurantCard, Printing ");
+    console.log(props)
 
     
 

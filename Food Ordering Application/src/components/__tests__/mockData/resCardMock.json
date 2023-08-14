@@ -1,0 +1,81 @@
+ {
+    "id": "131561",
+    "name": "Radhey Shyam Chole Bhature Paharganj Wale",
+    "cloudinaryImageId": "ycbwinezkp4mlemio7hu",
+    "locality": "Center stage mall",
+    "areaName": "Sector 18",
+    "costForTwo": "₹200 for two",
+    "cuisines": [
+        "Street Food",
+        "North Indian",
+        "Snacks"
+    ],
+    "avgRating": 4.4,
+    "veg": true,
+    "feeDetails": {
+        "restaurantId": "131561",
+        "fees": [
+            {
+                "name": "BASE_DISTANCE",
+                "fee": 7800
+            },
+            {
+                "name": "BASE_TIME"
+            },
+            {
+                "name": "ANCILLARY_SURGE_FEE"
+            }
+        ],
+        "totalFee": 7800
+    },
+    "parentId": "164373",
+    "avgRatingString": "4.4",
+    "totalRatingsString": "1K+",
+    "sla": {
+        "deliveryTime": 34,
+        "lastMileTravel": 8.7,
+        "serviceability": "SERVICEABLE",
+        "slaString": "34 mins",
+        "lastMileTravelString": "8.7 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2023-08-13 17:00:00",
+        "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "discountCalloutInfo": {
+            "message": "Free Delivery",
+            "logoCtx": {
+                "logo": "v1655895371/free_delivery_logo_hqipbo.png"
+            }
+        }
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+}

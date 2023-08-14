@@ -9,7 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import  {lazy,useEffect,useState}  from "react";
+import  {lazy}  from "react";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
@@ -1630,16 +1630,16 @@ const styleCard = {
 // -Address
 // -Contact
 
-const Footer = () => {
-  return (
-    <div className="footer">
-      <div className="copyright">Copyright</div>
-      <div className="links">Links</div>
-      <div className="address">Address</div>
-      <div className="contact">Address</div>
-    </div>
-  );
-};
+// const Footer = () => {
+//   return (
+//     <div className="footer">
+//       <div className="copyright">Copyright</div>
+//       <div className="links">Links</div>
+//       <div className="address">Address</div>
+//       <div className="contact">Address</div>
+//     </div>
+//   );
+// };
 // --------------------------
 
 // -----------------------------------------
@@ -1699,8 +1699,6 @@ useEffect(()=>{
 
 };
 
-//Creating Root
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // Creating Routing Configuration inside our App.js File
 
@@ -1745,6 +1743,9 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
+//Creating Root
+const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log(root);
 // Rendering to root
 root.render(<RouterProvider router={appRouter} />);
 

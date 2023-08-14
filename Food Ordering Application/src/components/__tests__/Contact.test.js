@@ -56,8 +56,8 @@ test("Should load 2 input Boxes on the Contact Component",()=>{
 
 
     // We can Do console.log here
-    console.log(inputBoxes[0]);
-    console.log(inputBoxes[1]);
+    // console.log(inputBoxes[0]);
+    // console.log(inputBoxes[1]);
 
     // What Output we see above
     // --> it will be a react Element from the virtual DOM
