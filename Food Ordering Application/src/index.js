@@ -1,5 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+const { render } = ReactDOM;
+
 
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -1594,120 +1596,50 @@ const restList = [
 ];
 
 
+// import React, { useState, useEffect, lazy, Suspense } from "react";
+// import ReactDOM from "react-dom";
+// import { Provider } from "react-redux";
+// import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
 // --------------------------
 
 // CSS Style for React Component: to be passed as JS Object.
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
-// RestaurantCard:
-// -img
-// -name of Restaurant
-// -Star Rating
-// -Cuisine
-// Delivery time
-
-// const RestaurantCard = ({resName,cuisine,rating,deliveryTime}) =>{ // Using Props here
-//     console.log(resName,cuisine,rating,deliveryTime) //Using Props Below
-//     return (
-//         <div className = "restaurant-card" style ={styleCard}>
-//             <img  className = "res-logo" alt="Image Not Loaded" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Momo_nepal.jpg/1200px-Momo_nepal.jpg"></img>
-//             <h3>{resName}</h3>
-//             <h4>{cuisine} </h4>
-//             <h4>{rating}</h4>
-//             <h4>{deliveryTime} </h4>
-//             <h4>{dataJSON.type} </h4>
-//             <h4>{dataJSON.food} </h4>
-
-//         </div>
-//     )
-// }
-
-// --------------------------
-// Footer:
-// -Copyright
-// -Links
-// -Address
-// -Contact
-
-// const Footer = () => {
-//   return (
-//     <div className="footer">
-//       <div className="copyright">Copyright</div>
-//       <div className="links">Links</div>
-//       <div className="address">Address</div>
-//       <div className="contact">Address</div>
-//     </div>
-//   );
-// };
-// --------------------------
-
-// -----------------------------------------
-
-// ------------------------
-
-const Grocery = lazy(()=>import("./components/Grocery"))
 
 
-// AppLayoutComponent: Main Application Component which contains everything inside.
+
+// Footer Component
+
+// AppLayoutComponent
 const AppLayoutComponent = () => {
+  const [userName, setUserName] = useState("UserName");
 
-  // State Variable to Store User Data after Authentication.
-const [userName, setUserName] = useState("UserName");
-
-// Authentication Code Skeleton
-useEffect(()=>{
-
-  // Make API call and send username and password
-
-  // Got Response From API with UserName
-  const data = {
-    name: "GUnja",
-  };
-
-  // We want to Pass this Info inside the App.
-  setUserName(data.name);
-
-},[]) // Blank Brackers as we only want to call it once
-
+  useEffect(() => {
+    // Make API call and handle authentication here
+    // Update the userName using setUserName
+  }, []);
 
   return (
-
-
-<div className="app">
-
-
-
-<UserContext.Provider value={ {loggedInUser   : userName, setUserName}}> 
-
-
-<Provider store={appStore}>
-      <Header />
-
-
-      <Outlet />
-</Provider>
-  
-</UserContext.Provider>
- 
-
+    <div className="app">
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Provider store={appStore}>
+          <Header />
+          <Outlet />
+        </Provider>
+      </UserContext.Provider>
     </div>
-
-
-
   );
-
 };
 
+// Lazy loading Grocery component
+const Grocery = lazy(() => import("./components/Grocery"));
 
 // Creating Routing Configuration inside our App.js File
-
 const appRouter = createBrowserRouter([
   {
-    // "/" --> is the "ROOT" Route
-    path: "/", // Defines what happens at path "/"
-    // If path is "/" Load the Main AppLayoutComponent
-
+    path: "/",
     element: <AppLayoutComponent />,
     errorElement: <Error />,
     children: [
@@ -1715,38 +1647,36 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },
-
       {
-        // We have "/about" and "/contact as childern of our root route ie "/"
         path: "/about",
         element: <About />,
-      }, // Child of "AppLayoutComponent"
-
+      },
       {
         path: "/contact",
         element: <Contact />,
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<h1>Loading.......</h1>}><Grocery /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading.......</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
-
       {
-        path: "/restaurants/:resID", // Dynamic Path
+        path: "/restaurants/:resID",
         element: <RestaurantMenu />,
       },
       {
-        path: "/cart", // Dynamic Path
+        path: "/cart",
         element: <Cart />,
       },
-    ], // Child of "AppLayoutComponent"
+    ],
   },
 ]);
 
-//Creating Root
-const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(root);
-// Rendering to root
-root.render(<RouterProvider router={appRouter} />);
+// const root = ReactDOM.createRoot(elementRoot);
 
-export default styleCard;
+const elementRoot = document.getElementById("root");
+const root = ReactDOM.createRoot(elementRoot);
+root.render(<RouterProvider router={appRouter} />);
