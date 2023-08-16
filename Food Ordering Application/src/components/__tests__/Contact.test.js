@@ -5,6 +5,16 @@ import "@testing-library/jest-dom";
 
 describe("Test Cases for Contact Us Component",()=>{
 
+    // beforeAll(): will run before running all the testcases
+    beforeAll(()=>{
+        console.log("Before all")
+    });
+
+    // beforeEach(): will run before each test case
+    beforeEach(()=>{
+        console.log("Before each")
+
+    })
     test('Should Load Contact Us Component ', 
 () => { render(<Contact/>)  
 // If Contact Component is rendered all its children will be be rendered.

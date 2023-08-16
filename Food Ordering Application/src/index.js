@@ -1677,6 +1677,18 @@ const appRouter = createBrowserRouter([
 
 // const root = ReactDOM.createRoot(elementRoot);
 
+// const elementRoot = document.getElementById("ROOT");
+// const root = ReactDOM.createRoot(elementRoot);
+// root.render(<RouterProvider router={appRouter} />);
+
+// Create a new div element with the id "root"
+const rootDiv = document.createElement("div");
+rootDiv.id = "root";
+
+// Append the "root" div to the body of the HTML document
+document.body.appendChild(rootDiv);
+
 const elementRoot = document.getElementById("root");
+
 const root = ReactDOM.createRoot(elementRoot);
 root.render(<RouterProvider router={appRouter} />);

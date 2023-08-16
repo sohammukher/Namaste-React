@@ -60,7 +60,7 @@ const RestaurantMenu =() =>{
     // if we do not have data in the state variable,
     // show Shimmer, else show actual data
     return (
-        <div className = " text-center">
+        <div className = " text-center" data-testid="foodItems">
             <h1 className=" font-bold my-10 text-2xl">{name}</h1>
             <h3 className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</h3>
             <h2 className="py-6 font-bold">Menu</h2>

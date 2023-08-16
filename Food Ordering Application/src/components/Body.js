@@ -64,12 +64,12 @@ const Body = () => {
     // -> await the fetch call
 
     try {
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
-      );
-      if (!data.ok) {
-        throw new Error(`Request failed with status ${data.status}`);
-      }
+    //   const data = await fetch(
+    //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
+    //   );
+    //   if (!data.ok) {
+    //     throw new Error(`Request failed with status ${data.status}`);
+    //   }
       const json = await data.json();
       
       console.log("jsonResponse", json);
@@ -107,13 +107,15 @@ const Body = () => {
   //When Nothing Is Rendered Print Loading to the Console................
   //resList is a state variable
   // State Varibales - Super Powerful Variable
-  return resList.length === 0? <Shimmer/>: (
+  return resList.length === 0? (<Shimmer/>): (
     
     <div className="body">
 
-      <div className="filter">
+      <div className="filter flex">
 
-        <input type="text" className="border border-solid border-black  rounded-md"
+        <input type="text" 
+        data-testid = "searchInput"
+        className="border border-solid border-black  rounded-md"
         onChange={(e)=>{ // This a callback method
 
             console.log("Value User Changed in SearchBox is"+e.target.value);
@@ -123,6 +125,8 @@ const Body = () => {
         }}></input>
         <button className="px-4 bg-yellow-500 m-4  rounded-md hover:border-orange-500" 
         value = {searchText}
+        data-testid = "searchButton"
+
         onClick={()=>{
             console.log("Search Button Clicked")
             // Filter the restaurant cards and update the UI
