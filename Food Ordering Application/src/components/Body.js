@@ -24,7 +24,7 @@ const Body = () => {
   const [resList, setresList] = useState([]); // This we will never Modify just for reading
   const [filteredResList, sefilteredResList] = useState(resList); // This we will modify this is for the actual display purpose
 
-  console.log("Initial Length of resList",resList.length)
+  // console.log("Initial Length of resList",resList.length)
   console.log(resList)
 
   // Search Box Text
@@ -53,7 +53,7 @@ const Body = () => {
     // fetch is a function that JS engine has
     // This is Pure JS
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
     );
 
     // fetch() will return a promise
@@ -93,7 +93,7 @@ const Body = () => {
     }
   };
 
-  console.log("resList", resList.length)
+  // console.log("resList", resList.length)
 
   //Check Internet
   const internetStatus = useOnlineStatus()
@@ -115,7 +115,7 @@ const Body = () => {
 
         <input type="text" 
         data-testid = "searchInput"
-        className="border border-solid border-black  rounded-md"
+        className="border border-solid border-black  rounded-md px-4 py-2 my-2 mx-4"
         onChange={(e)=>{ // This a callback method
 
             console.log("Value User Changed in SearchBox is"+e.target.value);
@@ -143,7 +143,7 @@ const Body = () => {
     
     
         <button
-          className="bg bg-orange-500 px-5 rounded-md hover:border-2 border-yellow-500"
+          className="m-4 bg-orange-500 px-6 rounded-md hover:border-2 border-yellow-500"
           onClick={() => {
             // Filtering out restaurants with avgRating More than 4
             listOfRestaurant = resList.filter((res) => res.info.avgRating > 4);
@@ -159,8 +159,8 @@ const Body = () => {
           Top Rated Restaurants
         </button>
 
-        <label className="px-4  mx-4/12">Temporary UserName: </label>
-        <input className="border-2 border-black mx-30 " value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
+        <label className="px-4  mx-4/12  font-bold py-4">Temporary UserName: </label>
+        <input className="border-2 border-black mx-30  rounded-md my-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
       </div>
       {/* <div className="search">Search</div> */}
       <div className="flex flex-wrap">

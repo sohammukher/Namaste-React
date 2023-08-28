@@ -24,9 +24,14 @@ class About extends React.Component{
 
         console.log("Parent render().");
         return(
-            <div>
-            <h1>About</h1>
-            <h2>Project Created as a Part Of Namaste React Web Series</h2>
+            <div className=" bg-black rounded-lg mx-2 my-5 px-5 py-2">
+
+<h5 className="text-3xl font-bold  text-orange-500 animate-pulse mb-2 px-2  shadow-md" >About Project</h5>
+
+
+<span className="text-xl font-bold text-yellow-500 animate-pulse mb-2 px-2">
+  Created as a Part Of Namaste React Web Series
+</span>
             
             {/* Basically context_name.Consumer */}
             <UserContext.Consumer>

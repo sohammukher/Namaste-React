@@ -3,14 +3,10 @@
   "name": "food-odering-application",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "jest --config=./jest.config.js",
     "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "watch-test": "jest --watch"
+    "build": "parcel build index.html"
   },
   "author": "",
   "license": "ISC",
