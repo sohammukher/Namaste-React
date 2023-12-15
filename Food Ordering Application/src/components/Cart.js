@@ -26,7 +26,7 @@ const Cart = () =>{
     return <div className="text-center m-4 p-4">
     <h1 className=" text-2xl font-bold">Cart</h1>
 
-    <div className=" w-6/12 m-auto">
+    <div className=" w-6/12 m-auto dark:text-white rounded-md font-bold text-lg">
 
     <button className=" p-2 m-6 bg-black text-white rounded-md" onClick={handleClearCart} >
     Clear Cart

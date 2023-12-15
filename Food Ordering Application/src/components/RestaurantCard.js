@@ -19,7 +19,7 @@ const RestaurantCard = (props) =>{ // Using Props here
 
 
     return (
-        <div  data-testid="resCard" className = " shadow-xl m-4 p-4 w-[240px] h-[370px] rounded-xl items-center border-2 border-orange-500 hover:border-4"
+        <div  data-testid="resCard" className = " bg-white dark:bg-neutral-600 dark:text-white shadow-xl m-4 p-4 w-[240px] h-[370px] rounded-xl items-center border-2 border-orange-500 hover:border-4 "
          > 
             <img  className = "px-1 mx-4 shadow-sm bg-white border-slate-950 rounded-xl"  alt="Image Not Loaded" src={RESTAURANT_IMG+resdata.cloudinaryImageId}></img>
             <h3 className="py-3 font-semibold font-serif">{name}</h3>
@@ -40,7 +40,7 @@ export const withPromotedLabel =(RestaurantCard)=>{
     // We are returning Another Component,
     // Components are Functions so we are returning Function Here.
 
-    // We will need to Pass the Data to the Restuarant Card.
+    // We will need to Pass the Data to the Restaurant Card.
 
     
     return (props) =>{

@@ -19,9 +19,9 @@ const ItemList = (props) =>{
     return (<div>        
         {data.map((currentItem)=>
 
-        <div className="">
+        <div className=" dark:bg-neutral-900">
 
-        <div key = {currentItem?.card?.info?.name} className="py-5 border-b-2 border-gray-200 flex justify-between">
+        <div key = {currentItem?.card?.info?.name} className="py-5 border-b-2 border-gray-200 flex justify-between ">
 
 
 

@@ -25,7 +25,7 @@ const Body = () => {
   const [filteredResList, sefilteredResList] = useState(resList); // This we will modify this is for the actual display purpose
 
   // console.log("Initial Length of resList",resList.length)
-  console.log(resList)
+  // console.log(resList)
 
   // Search Box Text
   const[searchText,setsearchText] = useState('')
@@ -78,6 +78,9 @@ const Body = () => {
       // setresList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
       // sefilteredResList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
 
+        // console.log("API OUTPUT")
+        console.log("API OUTPUT",json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
       // API Correction
       setresList(
         json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -111,7 +114,7 @@ const Body = () => {
     
     <div className="body">
 
-      <div className="filter flex">
+      <div className="filter flex dark:bg-black">
 
         <input type="text" 
         data-testid = "searchInput"
@@ -159,11 +162,11 @@ const Body = () => {
           Top Rated Restaurants
         </button>
 
-        <label className="px-4  mx-4/12  font-bold py-4">Temporary UserName: </label>
+        <label className="px-4  mx-4/12  font-bold py-4 dark:text-white">Temporary UserName: </label>
         <input className="border-2 border-black mx-30  rounded-md my-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
       </div>
       {/* <div className="search">Search</div> */}
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap dark:bg-black ">
         
         {filteredResList.map((currentItem) => (
          <Link to = {"/restaurants/"+currentItem.info.id}> 
