@@ -5,15 +5,22 @@ import Shimmer from "./Shimmer"
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus"
+import {useDispatch, useSelector} from "react-redux"
+
+import { Provider, useSelector } from "react-redux";
+import appStore from "../utils/appStore";
+import GPTSearchUI from './GPTSearchUI';
+
 
 import UserContext from "../utils/UserContext.js";
 // import { useContext } from "react";
 
 
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import {appStore} from "../utils/appStore"
 
 import { withPromotedLabel } from "./RestaurantCard";
+import { toggleGptSearchView } from "../utils/gptSlice.js";
 // Body:
 // -Search
 // -Restaurant Container
@@ -21,6 +28,19 @@ import { withPromotedLabel } from "./RestaurantCard";
 let listOfRestaurant = [];
 
 const Body = () => {
+
+  //Gpt Component
+  const dispatch = useDispatch();
+
+// Handle GPT Search
+const handleGPTSearchClick = () =>{
+
+  console.log("Inside handleGPTSearchClick")
+  // Toggle GPT Search View
+  dispatch(toggleGptSearchView())
+}
+
+
   const [resList, setresList] = useState([]); // This we will never Modify just for reading
   const [filteredResList, sefilteredResList] = useState(resList); // This we will modify this is for the actual display purpose
 
@@ -107,14 +127,19 @@ const Body = () => {
     return <h1>You are Offline!!!!</h1>
   }
 
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   //When Nothing Is Rendered Print Loading to the Console................
   //resList is a state variable
   // State Varibales - Super Powerful Variable
+  if(showGptSearch){
+    return <GPTSearchUI/>
+  }
   return resList.length === 0? (<Shimmer/>): (
     
     <div className="body">
 
-      <div className="filter flex dark:bg-black">
+      <div className="filter flex dark:bg-black ">
 
         <input type="text" 
         data-testid = "searchInput"
@@ -164,6 +189,9 @@ const Body = () => {
 
         <label className="px-4  mx-4/12  font-bold py-4 dark:text-white">Temporary UserName: </label>
         <input className="border-2 border-black mx-30  rounded-md my-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
+
+        <button className="px-4 bg-purple-700 m-4  py-2  text-white rounded-md hover:border-orange-500 font-semibold" onClick={handleGPTSearchClick}>Food Suggestions Assistant</button>
+
       </div>
       {/* <div className="search">Search</div> */}
       <div className="flex flex-wrap dark:bg-black ">

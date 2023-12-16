@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 const { render } = ReactDOM;
+import GPTSearch from "./components/GPTSearch"
 
 
 import Header from "./components/Header";
@@ -12,7 +13,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import  {lazy}  from "react";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 
@@ -20,6 +21,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import UserContext from "./utils/UserContext";
 import Cart from "./components/Cart";
+import GPTSearch from "./components/GPTSearch";
 // ----------App Overall Layout--------
 
 // Header:
@@ -1621,12 +1623,14 @@ const AppLayoutComponent = () => {
     // Update the userName using setUserName
   }, []);
 
+  // GPT 
+
   return (
     <div className="app">
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <Provider store={appStore}>
           <Header />
-          <Outlet />
+          <Outlet/>
         </Provider>
       </UserContext.Provider>
     </div>

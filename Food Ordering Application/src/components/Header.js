@@ -22,6 +22,14 @@ import { useSelector } from "react-redux";
 
 import { Provider } from "react-redux";
 import {appStore} from "../utils/appStore"
+import { changeLanguage } from "../utils/configSlice";
+
+import {useDispatch, useSelector} from "react-redux"
+
+import { Provider, useSelector } from "react-redux";
+import appStore from "../utils/appStore";
+import GPTSearchUI from './GPTSearchUI';
+// import gptSlice from "../utils/gptSlice";
 
 
 const Header = () => {
@@ -59,10 +67,32 @@ const Header = () => {
   console.log("Context Data")
   console.log(contextData.loggedInUser)
 
+  const dispatch = useDispatch();
+
+
+  // Language Change
+  const handleLanguageChange = (e) =>{
+    
+    console.log("Inside LanguageChange",e.target.value);
+
+    dispatch(changeLanguage(e.target.value));
+  }
+
+  // Search and Hide the Language Selector
+  const showGptSearch = useSelector((store)=>store.gpt.showGptSearch);
+
+// Handle GPT Search
+const handleGPTSearchClick = () =>{
+
+    console.log("Inside handleGPTSearchClick")
+    // Toggle GPT Search View
+    dispatch(toggleGptSearchView())
+  }
+
   return (
 
     <div className=" bg-amber-400 flex justify-between ">
-      <div className="logo-container ">
+      <div className="logo-container  "  >
           <Link to="/">
         <img className="w-[100px]  border-2 border-amber-600 rounded-full px-3 py-4 " src={LOGO_URL} />
           </Link>
@@ -71,7 +101,7 @@ const Header = () => {
           <ul className="flex p-4 m-4">
               <li className="px-4 font-bold text-xl">Online Status: {useOnlineStatus() ? "🟢" : "🔴"}</li>
 
-              <li className="px-4 font-bold text-xl"><Link to="/">Home 🏠</Link></li>
+              <li className="px-4 font-bold text-xl"><Link to="/" onClick={handleGPTSearchClick}>Home 🏠</Link></li>
 
               <li className="px-4 font-bold text-xl"><Link to="/about">About Us ℹ️</Link></li>
 
@@ -84,6 +114,15 @@ const Header = () => {
                       Cart 🛒- {cartItems.length} Items
                   </Link>
               </li>
+
+              {showGptSearch? <li className="">
+                <select onChange={handleLanguageChange} className="p-2 font-bold text-xl mx-4 bg-slate-600 opacity-80 rounded-lg text-white">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                </select>
+              </li>:<></>}
+
+             
 
               <button
                   className="bg-blue-600 rounded-lg px-5 hover:bg-slate-500 border-black"
