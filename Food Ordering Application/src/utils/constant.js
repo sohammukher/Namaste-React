@@ -10,4 +10,3 @@ export const RESTAURANT_IMG ="https://res.cloudinary.com/swiggy/image/upload/fl_
 
 export const MENUAPI_URL = "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=";
 
-export const OPENAI_KEY= "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";
