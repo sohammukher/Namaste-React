@@ -34,12 +34,17 @@ import GPTSearchUI from './GPTSearchUI';
 
 const Header = () => {
   let loginBtnTxt = "Login";
+  // let loginBtnTxt = "Logout";
+
 
   // let modeText = "Dark";
 
  let [modeText, setModeText] = useState("Dark");
 
   const [loginBtn, setloginBtn] = useState(loginBtnTxt);
+
+
+  const [welcomeText,setWelcomeText] = useState("Welcome Visitor");
 
 
   // Selector Hook Inside React
@@ -107,7 +112,7 @@ const handleGPTSearchClick = () =>{
 
               <li className="px-4 font-bold text-xl"><Link to="/contact">Contact Us 📞</Link></li>
 
-              <li className="px-4 font-bold text-xl"><Link to="/grocery">Grocery 🛍️</Link></li>
+              {/* <li className="px-4 font-bold text-xl"><Link to="/grocery">Grocery 🛍️</Link></li> */}
 
               <li className="px-4 font-bold text-xl">
                   <Link to="/cart">
@@ -136,12 +141,19 @@ const handleGPTSearchClick = () =>{
 
                       // Setting the State of the Login Button
                       setloginBtn(loginBtnTxt);
+
+                      loginBtnTxt == "Login"
+                      ? (setWelcomeText("Welcome Visitor"))
+                      :(setWelcomeText("Hello Soham"))
+
+
                   }}
               >
                   {loginBtn}
               </button>
 
-              <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{contextData.loggedInUser.length === 0 ? "Welcome Visitor" : "Hi " + contextData.loggedInUser}</li>
+              {/* <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{contextData.loggedInUser.length === 0 ? "Welcome Visitor" : "Hi " + contextData.loggedInUser}</li> */}
+              <li className=" font-bold px-2 mx-2 py-2 bg-orange-600  rounded-lg">{welcomeText}</li>
 
               <li onClick={toggleTheme} className=" font-bold px-2 mx-2 py-2 bg-black text-white rounded-lg hover:bg-blue-400 dark:hover:bg-blue-400 dark:bg-blue-50 dark:text-black">{modeText} Mode</li>
 

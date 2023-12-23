@@ -1626,7 +1626,7 @@ const AppLayoutComponent = () => {
   // GPT 
 
   return (
-    <div className="app">
+    <div className="app dark:bg-black">
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <Provider store={appStore}>
           <Header />

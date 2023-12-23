@@ -61,27 +61,29 @@ class UserClass extends Component {
           alt="User Avatar"
         />
         <h2 className="text-3xl font-bold text-yellow-500 animate-pulse mb-2">
-          Soham Mukherjee
+          Project By: Soham Mukherjee
         </h2>
         <h2 className="text-3xl font-bold text-yellow-500 animate-pulse mb-2">
-         GitHub Username: {this.state.name}
+         {/* GitHub Username: {this.state.name} */}
         </h2>
         <h3 className="text-xl mb-2 text-yellow-300 animate-pulse font-bold">
         Location  {this.state.location}, Canada
         </h3>
         <h4 className="text-lg mb-4 text-yellow-400 animate-pulse">
-          Contact: {this.state.contact}
+          {/* Contact: {this.state.contact} */}
+          {this.state.bio}
+
         </h4>
         <p className="text-gray-400 text-yellow-200 animate-fade-in">
-          {this.state.bio}
+          {/* {this.state.bio} */}
           <br />
 
         </p>
 
-        <h1 className="text-2xl mt-6 text-yellow-300">Likes Count: {count===0?"Please Like!!!":count}</h1>
+        <h1 className="text-2xl mt-6 text-yellow-300 font-bold">Likes Count: {count===0?"Please Like!!!":count}</h1>
 
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full mt-4 focus:outline-none transition-transform transform hover:scale-105"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mt-4 focus:outline-none transition-transform transform hover:scale-105 "
           onClick={() => {
             this.setState((prevState) => ({
               count: prevState.count + 1,

@@ -30,7 +30,13 @@ class About extends React.Component{
 
 
 <span className="text-xl font-bold text-yellow-500 animate-pulse mb-2 px-2">
-  Created as a Part Of Namaste React Web Series
+<div class="text-3xl font-bold text-yellow-500 animate-pulse mb-2">
+Created as a Part Of SOEN 498 H, HCI Final Project.
+</div>
+
+  <div class="text-3xl font-bold text-yellow-500 animate-pulse mb-2">
+  Professor: Marta Kersten-Oertel
+  </div>
 </span>
             
             {/* Basically context_name.Consumer */}

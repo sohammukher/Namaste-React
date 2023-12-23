@@ -4,6 +4,9 @@ const gptSlice = createSlice({
     name:'gpt',
     initialState:{
         showGptSearch:false,
+        gptFood:null,
+        foodNames:null,
+        cuisine:null,
     },
     reducers:{
         toggleGptSearchView: (state)=>{
@@ -12,8 +15,21 @@ const gptSlice = createSlice({
             console.log(current(state));
 
         },
+        addGptFoodResult:(state,action)=>{
+            // Multiple Data into Same Action
+
+            const {foodNames, foodResults} = action.payload;
+
+            state.gptFood = foodResults;
+            state.foodNames = foodNames;
+        },
+        setCuisine:(state,action)=>{
+
+            // Setting Cuisine
+            cuisine= action.payload;
+        }
     },
 });
 
-export const {toggleGptSearchView} = gptSlice.actions;
+export const {toggleGptSearchView,addGptFoodResult} = gptSlice.actions;
 export default gptSlice.reducer;

@@ -151,7 +151,7 @@ const handleGPTSearchClick = () =>{
             // Now the TextBox Will be Updated!!!
 
         }}></input>
-        <button className="px-4 bg-yellow-500 m-4  rounded-md hover:border-orange-500" 
+        <button className="px-4 bg-yellow-500 m-4  rounded-md hover:border-orange-500 font-bold" 
         value = {searchText}
         data-testid = "searchButton"
 
@@ -171,7 +171,7 @@ const handleGPTSearchClick = () =>{
     
     
         <button
-          className="m-4 bg-orange-500 px-6 rounded-md hover:border-2 border-yellow-500"
+          className="m-4 bg-orange-500 px-6 rounded-md hover:border-2 border-yellow-500 font-bold"
           onClick={() => {
             // Filtering out restaurants with avgRating More than 4
             listOfRestaurant = resList.filter((res) => res.info.avgRating > 4);
@@ -187,8 +187,8 @@ const handleGPTSearchClick = () =>{
           Top Rated Restaurants
         </button>
 
-        <label className="px-4  mx-4/12  font-bold py-4 dark:text-white">Temporary UserName: </label>
-        <input className="border-2 border-black mx-30  rounded-md my-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
+        {/* <label className="px-4  mx-4/12  font-bold py-4 dark:text-white">Temporary UserName: </label>
+        <input className="border-2 border-black mx-30  rounded-md my-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input> */}
 
         <button className="px-4 bg-purple-700 m-4  py-2  text-white rounded-md hover:border-orange-500 font-semibold" onClick={handleGPTSearchClick}>Food Suggestions Assistant</button>
 

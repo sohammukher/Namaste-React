@@ -1,11 +1,12 @@
 import React from 'react';
-import GptMovieSuggestions from './GptMovieSuggestions';
+import GptFoodSuggestions from './GptFoodSuggestions';
 import GptSearchBar from './GptSearchBar';
 
 const GPTSearchUI = () => {
   return (
-    <div>
+    <div className='dark:bg-black'>
         <GptSearchBar/>
+        <GptFoodSuggestions/>
     </div>
   )
 }
