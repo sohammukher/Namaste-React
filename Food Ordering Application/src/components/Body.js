@@ -72,10 +72,17 @@ const handleGPTSearchClick = () =>{
   const fetchData = async () => {
     // fetch is a function that JS engine has
     // This is Pure JS
+    // const data = await fetch(
+    //   "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
+    // );
+
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6155712&lng=77.3848373&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2599333&lng=77.412615&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
+   
+
+    
     // fetch() will return a promise
     // to resolve a promise
     // 1) using . then and catch to handle errors
@@ -94,6 +101,20 @@ const handleGPTSearchClick = () =>{
       
       console.log("jsonResponse", json);
 
+      const data1 = json?.data?.cards?.filter(
+        (rest) => (rest.card?.card?.id === "restaurant_grid_listing")
+    );
+
+    console.log("DATA1", data1);
+
+   const data2 = data1[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+   console.log("DATA2", data2);
+
+
+
+
+
       // Update List Of Restaurant with new data we fetched from API.
       // setresList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
       // sefilteredResList(jsonResponse?.data?.cards[2]?.data?.data?.cards)
@@ -102,12 +123,15 @@ const handleGPTSearchClick = () =>{
         console.log("API OUTPUT",json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
       // API Correction
-      setresList(
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      );
-      sefilteredResList(
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      );
+      // setresList(
+      //   json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // );
+      // sefilteredResList(
+      //   json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // );
+
+      setresList(data2);
+      sefilteredResList(data2);
 
       // After That React will Re-render this component.
       console.log("Rerendered")
