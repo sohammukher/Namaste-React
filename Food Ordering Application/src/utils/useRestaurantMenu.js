@@ -11,9 +11,11 @@ const useRestaurantMenu =(resID) =>{ // Info is Restaurant ID
     // Fetching data with this.
     const fetchData = async() =>{
 
-        const data = await fetch(MENUAPI_URL+resID)
+        const data = await fetch("https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Fmenu%2Fpl%3Fpage-type%3DREGULAR_MENU%26complete-menu%3Dtrue%26lat%3D17.3935543%26lng%3D78.6039862%26restaurantId%3D"+resID)
 
         const dataJSON = await data.json();
+
+        console.log("Restaurant Data Fetched ",dataJSON)
 
         setresInfo(dataJSON)
 

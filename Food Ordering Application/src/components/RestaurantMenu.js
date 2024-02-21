@@ -19,12 +19,18 @@ const RestDetails =(props) =>{
 }
 const RestaurantMenu =() =>{
 
+    const VAR = useParams()
+
+    console.log("VAR ",VAR);
+
+
  
     // Fetching Details of the dynamic part of the path variable
     const {resID} = useParams()
 
     // Fetching data from Custom Hooks
     const resInfo = useRestaurantMenu(resID)
+    console.log("RESINFO After Fetch", resInfo);
 
     // For Opening and Closing of the Accordian Menu Items
     const [showIndex, setShowIndex] = useState(0);
@@ -37,11 +43,19 @@ const RestaurantMenu =() =>{
 
     // Destructure
 
+    console.log("resInfo SOHAM", resInfo?.data?.cards[0]?.card?.card);
 
 
-    const{name,costForTwoMessage,cloudinaryImageId,cuisines} = resInfo?.data?.cards[0]?.card?.card?.info
+    // const{name,costForTwoMessage,cloudinaryImageId,cuisines} = resInfo?.data?.cards[0]?.card?.card?.info;
+//    const  {name,cuisines,costForTwoMessage} = resInfo?.data?.cards[0]?.card?.card?.info;
+      const  {name,cuisines,costForTwoMessage} = resInfo?.data?.cards[2]?.card?.card?.info;
 
-    const{itemCards} = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+
+    // console.log("name :",name, "costForTwoMessage", costForTwoMessage, "cloudinaryImageId", cloudinaryImageId, "cuisines", cuisines)
+    console.log("name :",name, "costForTwoMessage", costForTwoMessage)
+    console.log("ITEMCARDS Debug", resInfo?.data?.cards[2]);
+
+    const{itemCards} = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
     // console.log("Printing Card")
     // console.log(resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR);
@@ -49,10 +63,10 @@ const RestaurantMenu =() =>{
     // console.log(itemCards)
 
     // Filtering By Item Category
-    const categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter( (currentItem) => currentItem?.["card"]?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    const categories = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter( (currentItem) => currentItem?.["card"]?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
     
     console.log("Filtered Category Cards")
-    console.log(categories)
+    console.log("Filtered Category Cards",categories)
 
 
    
@@ -73,7 +87,7 @@ const RestaurantMenu =() =>{
 {/* 
             </ul> */}
 
-            {categories.map((category,index)=><RestaurantCategory key={category?.card.card.title} data= {category?.card.card} showItems = {index === showIndex? true:false}
+            {categories.map((category,index)=><RestaurantCategory key={category?.card.card. title} data= {category?.card.card} showItems = {index === showIndex? true:false}
                 setShowIndex={()=> setShowIndex(index)}
             />)}
 
